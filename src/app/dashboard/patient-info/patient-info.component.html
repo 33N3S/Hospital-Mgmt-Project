@@ -1,0 +1,66 @@
+
+<div class="dialogcontainer custom-dialog">
+  
+  <h1 class="dialogttl" >Patient Info</h1>
+  <mat-divider class="divide"></mat-divider>
+  <div *ngIf="!p" class="notfound" >
+    <mat-icon fontIcon="error" class="notfoundicon"></mat-icon>
+    <h1>No occurence found</h1>
+  </div>
+  <mat-grid-list cols="2" rowHeight="2:1" gutterSize="0" class="gridlist">
+    <mat-grid-tile class="grid">
+      <mat-card class="depcard">
+      <mat-card-title>Personal info:</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-card-content class="content">
+      <p><strong>CIN: </strong>{{ p.cinPatient }}</p>
+      <p><strong>First Name: </strong>{{ p.first_namep }}</p>
+      <p><strong>Last Name: </strong>{{ p.last_namep }}</p>
+      <p><strong>Date of Birth: </strong>{{ p.naissancep }}</p>
+    </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile class="grid">
+      <mat-card class="depcard">
+      <mat-card-title>Medical info:</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-card-content class="content">
+      <P><strong>Sex: </strong>{{ p.sexp=='M'?'Male':'Female'}} </P>
+      <P><strong>State: </strong>{{ p.statep }}</P>
+      <P><strong>Note: </strong>{{ p.notep }}</P>
+    </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile class="grid">
+      <mat-card class="depcard">
+      <mat-card-title>Contacts:</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-card-content class="content">
+      <p><strong>Relative: </strong>{{ p.relativep }}</p>
+      <p><strong>Password Relative: </strong>{{ p.passwordrelative }}</p>
+      <p><strong>Contact: </strong>{{ p.contactp }}</p>
+    </mat-card-content>
+    </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile class="grid">
+      <mat-card class="depcard">
+      <mat-card-title>Hospital related:</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-card-content class="content">
+        <p><strong>Bed Number: </strong>{{ p.bedNum }}</p>
+        <p *ngIf="dep"><strong>Department: </strong>{{dep.depName}}</p>
+        <p *ngIf="!dep"><strong>Department: </strong>{{depName}}</p>
+        <p><strong>Record: </strong>{{p.historyp[0][p.historyp[0].length-1]}}<br>{{p.historyp[0][p.historyp[0].length-2]}}</p>
+        
+      </mat-card-content>
+      
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+ <br>
+ <mat-divider id="divid"></mat-divider>
+  <div class="roww">
+    <button *ngIf="p" mat-raised-button (click)="openEdit()" class="actionrow sub">Edit</button>
+    <button mat-raised-button color="warn" (click)="closeDialog()" class="actionrow canc">Close</button>
+  </div>
+  </div>

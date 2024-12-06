@@ -1,0 +1,72 @@
+<div class="dialogcontainer">
+    <h1 class="dialogttl">Register Doctor</h1>
+    <form [formGroup]="docform" >
+    <mat-grid-list cols="2" rowHeight="75px">
+        <mat-grid-tile>
+            <mat-form-field  class="full-width">
+                <mat-label>First Name</mat-label>
+                <input type="text" matInput formControlName="first_nameD"  >
+            </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="full-width"  >
+            <mat-label>Last Name</mat-label>
+            <input type="text" matInput formControlName="last_nameD" >
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="full-width"  >
+            <mat-label>Specialty</mat-label>
+            <input type="text" matInput formControlName="specD" >
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="full-width"  >
+            <mat-label>Password</mat-label>
+            <input type="text" matInput formControlName="passwordD">
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="full-width"  >
+            <mat-label>Shift Start</mat-label>
+            <input type="text" matInput formControlName="DshiftS"  placeholder="00:00:00" >
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="full-width"  >
+            <mat-label>Shift End</mat-label>
+            <input type="text" matInput formControlName="DshiftE" placeholder="00:00:00">
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+            <mat-form-field class="full-width"  >
+                <mat-label>Department</mat-label>
+                <mat-select formControlName="depNum">
+                    <mat-option *ngFor="let dep of deps" value={{dep.depNum}}> {{dep.depName}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="full-width"  >
+            <mat-label>Contact</mat-label>
+            <input type="text" matInput formControlName="contactD" placeholder="+212" >
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="full-width"  >
+            <mat-label>Work Days</mat-label>
+            <mat-select multiple="true" formControlName="daysD">
+                <mat-option  *ngFor="let day of days" [value]="day">{{day}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-grid-tile>
+    </mat-grid-list>
+        <mat-divider></mat-divider>
+        <mat-action-row class="roww">
+            <br>
+            <button mat-raised-button (click)="DocSubmit()" [disabled]="!docform.valid" class="actionrow sub">Submit</button>
+            <button mat-raised-button color="warn" (click)="closeDialog()" class="actionrow canc">Cancel</button>
+        </mat-action-row>
+    </form>
+</div>
+

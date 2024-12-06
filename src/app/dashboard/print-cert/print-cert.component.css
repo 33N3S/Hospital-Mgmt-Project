@@ -1,0 +1,108 @@
+.body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px rgba(189, 9, 9, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .patient-info {
+    margin-bottom: 30px;
+  }
+  
+  .patient-info h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .patient-info p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  .certification-info {
+    margin-bottom: 30px;
+  }
+  
+  .certification-info h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .certification-info p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  .doctor-signature {
+    text-align: right;
+    margin-top: 50px;
+  }
+  
+  .signature-line {
+    width: 50%;
+    border-bottom: 1px solid #000;
+    margin-top: 10px;
+  }
+  
+  .date-line {
+    margin-top: 20px;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .small-text {
+    font-size: 12px;
+    
+  }
+  
+  .watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.2;
+    font-size: 100px;
+    font-weight: bold;
+    color: #ccc;
+    z-index: -1;
+  }
+  .hero{
+    font-size:50px;
+    padding:2px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    color:darkgrey;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btnctn{
+    display: flex;
+    align-self: center;
+    margin-left:900px;
+}
+
+.btnctn button{
+    margin-left:10px;
+    width:120px;
+    height: 40px;
+}
+
+.preview {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Customize the values as needed */
+    border-radius: 4px; /* Customize the value as needed */
+}
+  

@@ -1,0 +1,71 @@
+.searchinput{
+    width:90%;
+    margin-right:50px
+}
+.hero{
+    font-size:50px;
+    padding:2px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    color:darkgrey;
+    margin-left:50px;
+    font-weight: bold;
+}
+.full-width{
+    width:100%;
+    margin-left:50px;
+    justify-content:space-between;
+}
+.grid-main{
+    background-color: RGB(224, 224, 224);
+    border-radius: 10px;
+    margin-left:50px;
+    margin-right:50px;
+    padding:10px;
+}
+
+.depcard{
+    width:90%;
+    height:90%;
+}
+
+.cardfoot{
+    
+    width:100%;
+    height:100%;
+    background: linear-gradient(45deg, #008080, #00B8B8, #5C6BC0,#1A237E);
+    background-size: 300% 300%;
+    animation: gradient 15s ease infinite;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+}
+
+.actionbtn{
+    margin-left: 5px;
+    margin-right: 5px;
+    width:450px;
+}
+a{
+    text-decoration: none;
+}
+
+.depaddbtn{
+  margin-left: 50px;
+  margin-bottom: 15px;
+  height:45px;
+}
+
+
+
+
+

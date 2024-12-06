@@ -1,0 +1,55 @@
+<div class="dialogcontainer">
+    <h1 class="dialogttl">Edit Nurse</h1>
+    <form [formGroup]="nurform" >
+    <mat-grid-list cols="2" rowHeight="75px">
+        <mat-grid-tile>
+            <mat-form-field  class="full-width">
+                <mat-label>First Name</mat-label>
+                <input type="text" matInput formControlName="first_nameN"  >
+            </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="full-width"  >
+            <mat-label>Last Name</mat-label>
+            <input type="text" matInput formControlName="last_nameN" >
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="full-width"  >
+            <mat-label>Shift Start</mat-label>
+            <input type="text" matInput formControlName="NshiftS"  placeholder="00:00:00" >
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="full-width"  >
+            <mat-label>Shift End</mat-label>
+            <input type="text" matInput formControlName="NshirtE" placeholder="00:00:00">
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+            <mat-form-field class="full-width"  >
+                <mat-label>Doctor</mat-label>
+                <mat-select formControlName="numDoc">
+                    <mat-option *ngFor="let doc of docs" value={{doc.numDoc}}> {{doc.first_nameD.slice(0,1)}}.{{doc.last_nameD}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="full-width"  >
+            <mat-label>Work Days</mat-label>
+            <mat-select multiple="true" formControlName="daysN">
+                <mat-option  *ngFor="let day of days" [value]="day">{{day}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-grid-tile>
+    </mat-grid-list>
+        <mat-divider></mat-divider>
+        <mat-action-row class="roww">
+            <br>
+            <button mat-raised-button (click)="DocSubmit()" [disabled]="!nurform.valid" class="actionrow sub">Submit</button>
+            <button mat-raised-button color="warn" (click)="closeDialog()" class="actionrow canc">Cancel</button>
+        </mat-action-row>
+    </form>
+</div>
+
+

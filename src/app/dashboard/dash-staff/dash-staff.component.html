@@ -1,0 +1,170 @@
+<p class="hero">Account Overview</p>
+
+<mat-divider></mat-divider>
+
+<div >
+    <form class="searchinput" [formGroup]="srchform">
+        
+        <mat-form-field class="full-width"  >
+          <mat-label><span class="label" id="id">Search By Employee's Name</span></mat-label>
+          <input type="text" matInput  #fullname [matAutocomplete]="auto" formControlName="cin" >
+          <button mat-icon-button class="searchbtn" (click)="openEmployeeInfo(searchByName(fullname.value)[0])" ><mat-icon>search</mat-icon></button>
+        </mat-form-field>
+      </form>
+</div>
+
+<mat-autocomplete #auto [displayWith]="displayFn" >
+    <mat-option *ngFor="let c of filtered" [value]="c">
+      {{ c.last }} {{ c.first }}
+    </mat-option>
+  </mat-autocomplete>
+
+<div class="ctner">
+    <mat-grid-list cols="2" gutterSize="0" rowHeight="400px" class="gridd" >
+        <mat-grid-tile>
+            <mat-card class="summarycard">
+                <mat-card-header>
+                    <mat-card-title class="cardttl">Summary</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                <mat-grid-list cols="2" class="summarygrid" rowHeight="90px">
+                <mat-grid-tile colspan="2" >
+                    <mat-card class="summarytile">
+                    <mat-card-header>
+                        <mat-card-title>Available Doctors</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>{{availableDocs.length}}</mat-card-content>
+                </mat-card>
+                    </mat-grid-tile>
+                <mat-grid-tile colspan="2" >
+                    <mat-card class="summarytile">
+                    <mat-card-header>
+                        <mat-card-title>Available Nurses</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>{{availableNurs.length}}</mat-card-content>
+                </mat-card>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="2" >
+                    <mat-card class="summarytile">
+                    <mat-card-header>
+                        <mat-card-title>Total Employees</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>{{doctors.length +nurses.length +admins.length}}</mat-card-content>
+                </mat-card></mat-grid-tile>
+                </mat-grid-list>
+            </mat-card-content> 
+            </mat-card> 
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-card class="summarycard ">
+                <mat-card-header>
+                    <mat-card-title class="cardttl">Recent Activity</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="trimm">
+                <mat-grid-list cols="2" class="summarygrid" rowHeight="90px">
+                <mat-grid-tile colspan="2" *ngFor="let emp of activs">
+                    <mat-card class="summarytile activity" *ngIf="emp.logins.length">
+                    <mat-card-header>
+                        <mat-card-title >{{emp.first_namea[0]}}.{{emp.last_namea}}: <span class="tagg">{{emp.profession}}</span></mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content >{{ emp.logins | date:'MMM d, HH:mm' }}</mat-card-content>
+                </mat-card>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-card-content> 
+            </mat-card> 
+        </mat-grid-tile>
+    </mat-grid-list>
+    <p class="hero mng">Account Management</p>
+     <mat-divider class="scnddivid"></mat-divider>
+
+     <div class="abovecarou">
+        <strong class="adcaroucardttl">Admins</strong>
+        <button mat-raised-button class="btn custom-button" (click)="openAddAdmin()"><mat-icon  class="plus">add</mat-icon >Add Account</button>
+    </div>
+    
+    <mat-card class="caroucontain">
+        <mat-card-header>
+        </mat-card-header>
+        <owl-carousel-o [options]="customOptions">
+          <ng-container *ngFor="let ad of admins">
+            <ng-template carouselSlide [id]="ad.id">
+              <mat-card class="adcaroucard">
+                <mat-card-header>
+                    <mat-card-title>{{ad.first_namea}} {{ad.last_namea}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p><strong>Gmail:</strong><br> {{ad.gmail}}</p>
+                    <p><strong>tel:</strong> {{ad.contacta}}</p>
+                    <p><strong>last login:</strong> {{ad.logins[0][ad.logins.length-1]}}</p>
+                    <button mat-button class="editbtn" (click)="editAdmin(ad)"><mat-icon>edit</mat-icon></button>
+
+                </mat-card-content>
+              </mat-card>
+            </ng-template>
+          </ng-container>
+      
+        </owl-carousel-o>
+    </mat-card>
+
+    <br> <br>
+
+    <div class="abovecarou">
+        <strong class="caroucardttl">Doctors</strong>
+        <button mat-raised-button class="btn custom-button" (click)="openAddDoc()"><mat-icon  class="plus">add</mat-icon >Add Account</button>
+    </div>
+    
+    <mat-card class="caroucontain">
+        <mat-card-header>
+        </mat-card-header>
+        <owl-carousel-o [options]="customOptions">
+          <ng-container *ngFor="let doc of doctors">
+            <ng-template carouselSlide [id]="doc.id">
+              <mat-card class="caroucard">
+                <mat-card-header>
+                    <mat-card-title>{{doc.first_nameD}} {{doc.last_nameD}}</mat-card-title>
+                    <mat-card-subtitle></mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p><strong>Specialty:</strong> {{doc.specD}}</p>
+                    <p><strong>tel:</strong> {{doc.contactD}}</p>
+                    <p><strong>Statue:</strong> {{ isAvailable(doc) ? 'Available' : 'Unavailable' }}</p>
+                    <p><strong>Last login:</strong> {{doc.loginsD[0][doc.loginsD.length-1]}}</p>
+                    <button mat-button class="editbtn" (click)="editDoctor(doc)"><mat-icon>edit</mat-icon></button>
+                </mat-card-content>
+              </mat-card>
+            </ng-template>
+          </ng-container>
+      
+        </owl-carousel-o>
+    </mat-card>
+
+    <br> <br>
+    <div class="abovecarou">
+        <strong class="nurcaroucardttl ">Nurses</strong>
+        <button mat-raised-button class="btn custom-button" (click)="openAddNurse()"><mat-icon  class="plus">add</mat-icon >Add Account</button>
+    </div>
+    <mat-card class="caroucontain">
+        <mat-card-header>
+        </mat-card-header>
+        <owl-carousel-o [options]="customOptions">
+          <ng-container *ngFor="let nur of nurses">
+            <ng-template carouselSlide [id]="nur.id">
+              <mat-card class="nurcaroucard">
+                <mat-card-header>
+                    <mat-card-title>{{nur.first_nameN}} {{nur.last_nameN}}</mat-card-title>
+                    <mat-card-subtitle></mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p *ngIf="nur.rooms"><strong>Rooms:</strong> {{nur.rooms}}</p>
+                    <p *ngIf="nur.numDoc"><strong >Doctor:</strong> {{ getDoc(nur.numDoc).first}} {{getDoc(nur.numDoc).last}}</p>
+                    <p><strong>Statue:</strong> {{ isAvailable(nur) ? 'Available' : 'Unavailable' }}</p>
+                    <button mat-button class="editbtn" (click)="editNurse(nur)"><mat-icon>edit</mat-icon></button>
+                </mat-card-content>
+              </mat-card>
+            </ng-template>
+          </ng-container>
+      
+        </owl-carousel-o>
+    </mat-card><br><br><br>
+</div>

@@ -1,0 +1,91 @@
+<div class="dialogcontainer">
+    <h1 class="dialogttl">Add Patient</h1>
+    <form [formGroup]="patientform" >
+    <mat-grid-list cols="2" rowHeight="75px">
+        <mat-grid-tile>
+            <mat-form-field  class="full-width">
+                <mat-label>CIN</mat-label>
+                <input type="text" matInput formControlName="cinPatient"  >
+            </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field  class="full-width">
+            <mat-label>First name</mat-label>
+            <input type="text" matInput formControlName="first_namep"  >
+    </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="full-width"  >
+            <mat-label>Last Name</mat-label>
+            <input type="text" matInput formControlName="last_namep" >
+        </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+        <mat-label class="bigger">Sex : </mat-label>
+        <mat-radio-group formControlName="sexp"  >
+            <mat-radio-button value="M" ><span  class="bigger">Male</span></mat-radio-button>
+            <mat-radio-button value="F" ><span  class="bigger">Female</span></mat-radio-button>
+        </mat-radio-group>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+        <mat-form-field appearance="fill" class="datepick" >
+            <mat-label>Birth Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="naissancep" placeholder="MM/DD/YYYY">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+            <mat-form-field class="full-width"  >
+                <mat-label>State</mat-label>
+                <mat-select formControlName="statep">
+                    <mat-option value="Stable" >Stable</mat-option>
+                    <mat-option value="Improving">Improving</mat-option>
+                    <mat-option value="Declining">Declining</mat-option>
+                    <mat-option value="Critical">Critical</mat-option>
+                </mat-select>
+            </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+        <mat-form-field class="full-width"  >
+            <mat-label>Select Bed</mat-label>
+            <mat-select formControlName="bedNum">
+                <mat-option *ngFor="let b of empties" value={{b.bedNum}} >{{b.bedNum}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+</mat-grid-tile>
+
+    <mat-grid-tile>
+        <mat-form-field class="full-width"  >
+            <mat-label>Contact</mat-label>
+            <input type="text" matInput formControlName="contactp" placeholder="Ex:MA156896" >
+        </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+        <mat-form-field class="full-width"  >
+            <mat-label>Relative's CIN</mat-label>
+            <input type="text" matInput formControlName="relativep" placeholder="Ex:MA156896" >
+        </mat-form-field>
+    </mat-grid-tile>
+    
+    <mat-grid-tile>
+        <mat-form-field class="full-width"  >
+            <mat-label>Relative's Passwrod</mat-label>
+            <input type="text" matInput formControlName="passwordrelative">
+        </mat-form-field>
+    </mat-grid-tile>
+
+    </mat-grid-list>
+        <mat-divider></mat-divider>
+        <mat-action-row class="roww">
+            <button mat-raised-button color="primary" (click)="patientSubmit()" [disabled]="!patientform.valid" class="actionrow">Submit</button>
+            <button mat-raised-button color="warn" (click)="closeDialog()" class="actionrow">Cancel</button>
+        </mat-action-row>
+    </form>
+</div>
+

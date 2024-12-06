@@ -1,0 +1,66 @@
+<div class="main">
+<mat-card class="cardhero">
+    <mat-card-header>
+        <mat-card-title class="cardherottl">{{dep}}</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+</mat-card>
+
+<div >
+    <form class="searchinput">
+        <mat-form-field class="full-width" >
+          <mat-label>Room Search By Nurse ID</mat-label>
+          <input type="text" matInput placeholder="Ex. XY555555" #srchid >
+          <button mat-icon-button class="searchbtn" (click)="onSub(srchid.value)"><mat-icon>search</mat-icon></button>
+        </mat-form-field>
+      </form>
+</div>
+
+<mat-expansion-panel disabled>
+    <mat-expansion-panel-header>
+        <mat-panel-title>No.</mat-panel-title>
+        <mat-panel-description></mat-panel-description>
+        <button mat-stroked-button color="accent" class="depaddbtn"  [matMenuTriggerFor]="addoptions"><mat-icon>add</mat-icon>Register patient</button>
+    </mat-expansion-panel-header>
+</mat-expansion-panel>
+
+<mat-menu #addoptions="matMenu" >
+  <button mat-menu-item (click)="openDialog2()">Existing</button>
+  <button mat-menu-item (click)="openDialog()">New</button>
+</mat-menu>
+
+
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let r of rooms;let i =index" class="innerpanel" (opened)="roomdetail(r)"  [expanded]="i === 0" >
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{r.roomNum}}
+            </mat-panel-title>
+            <mat-panel-description>
+               expand to view beds
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>{{beds.length ?'':'No beds detected in this room '}}</p>
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let b of beds" [disabled]="!b.cinPatient">
+            <mat-expansion-panel-header >
+                <mat-panel-title>Bed: {{b.bedNum}}</mat-panel-title>
+                <mat-panel-description>{{b.bedEmpty? 'Empty':'Full'}}</mat-panel-description>
+            </mat-expansion-panel-header>
+                <p>{{b.cinPatient}}</p>
+                <p>{{b.statep}}</p>
+                <mat-action-row>
+                    <button mat-stroked-button color="warn" (click)="clearBed(b.bedNum,end)">Clear</button>
+                    <button mat-stroked-button color="primary" (click)="patientdetail(b.cinPatient)">More</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+        </mat-accordion><br>
+        <mat-divider></mat-divider>
+        <p *ngIf="nurse" class="toleft"><strong>Nurse: </strong>{{nurse.first_nameN}} {{nurse.last_nameN}}</p>
+        
+    </mat-expansion-panel>
+</mat-accordion>
+<br>
+</div>
+
+

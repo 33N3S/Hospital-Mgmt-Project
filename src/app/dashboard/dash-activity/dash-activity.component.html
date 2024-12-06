@@ -1,0 +1,135 @@
+<div class="container" >
+<h1 class="hero">Summary</h1>
+<mat-grid-list cols="3" class="gridlist first maingrid" rowHeight="370px" gutterSize="0px">
+    <mat-grid-tile class="right">
+        <mat-card class="card">
+            <mat-card-header>
+                <mat-card-title class="cardttl">Live Numbers</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="cardinfo">
+                <div class="smallcardcontainer">
+                <mat-grid-list cols="2" rowHeight="110px" gutterSize="8px" class="smallgrid">
+                    <mat-grid-tile>
+                        <mat-card class="smallcard" id="doc">
+                            <mat-card-title >Doctors</mat-card-title>
+                            <mat-card-content *ngIf="liveNums">{{liveNums.docs}}</mat-card-content>
+                        </mat-card>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-card class="smallcard" id="nur">
+                            <mat-card-title>Nurses</mat-card-title>
+                            <mat-card-content *ngIf="liveNums">{{liveNums.nurses}}</mat-card-content>
+                        </mat-card>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-card class="smallcard" id="pat">
+                            <mat-card-title>Patients</mat-card-title>
+                            <mat-card-content *ngIf="liveNums">{{liveNums.patients}}</mat-card-content>
+                        </mat-card>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-card class="smallcard" id="bd">
+                            <mat-card-title>Beds</mat-card-title>
+                            <mat-card-content *ngIf="liveNums">{{liveNums.beds}}</mat-card-content>
+                        </mat-card>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </div>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" class="left">
+        <mat-card class="card" class="widecard">
+            <mat-card-header>
+            <mat-card-title class="cardttl">Patient Distribution</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="cardinfo barcontain">
+                <div >
+                <canvas  id="barchart">
+                </canvas>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2" class="left">
+        <mat-card class="widecard long">
+            <mat-card-header>
+                <mat-card-title class="cardttl">Patient Weekly Flow</mat-card-title>
+                <mat-card-subtitle ></mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content class="cardinfo">
+                <div class="number-container">
+                    <canvas  id="flowchart"></canvas>
+                  </div>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile class="right" >
+        <mat-card class="card long">
+            <mat-card-header>
+                <mat-card-title class="cardttl">Nurse Distribution</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="cardinfo nurse">
+                <div id="nursecontain">
+                    <canvas  id="nurseChart">
+                    </canvas>
+                    </div>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list><div class="historycont">
+    <h1 class="hero">History</h1>
+    <mat-form-field appearance="outline">
+        <mat-label >Limit</mat-label>
+        <mat-select (selectionChange)="trimTableData($event)">
+            <mat-option value="alltime">All Time</mat-option>
+            <mat-option value="week">This Week</mat-option>
+            <mat-option value="month">This Month</mat-option>
+            <mat-option value="day">This Day</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div class="contain">
+<div class="tablecontainer">
+    <table mat-table [dataSource]=filtered class="tablee">
+
+        <!-- Date Column -->
+        <ng-container matColumnDef="Date">
+          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.historyp| date:'mediumDate'}} </td>
+        </ng-container>
+       
+        <!-- Date Column -->    
+        <ng-container matColumnDef="Time">
+            <th mat-header-cell *matHeaderCellDef> Time </th>
+            <td mat-cell *matCellDef="let element"> {{element.historyp| date:'shortTime'}} </td>
+          </ng-container>
+      
+        <!-- Action Column -->
+        <ng-container matColumnDef="Action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element"> {{element.action}} </td>
+        </ng-container>
+      
+        <!-- CIN Column -->
+        <ng-container matColumnDef="CIN">
+          <th mat-header-cell *matHeaderCellDef> CIN </th>
+          <td mat-cell *matCellDef="let element"> {{element.cinPatient}} </td>
+        </ng-container>
+      
+        <!-- State Column -->
+        <ng-container matColumnDef="State">
+          <th mat-header-cell *matHeaderCellDef> State </th>
+          <td mat-cell *matCellDef="let element"> {{element.statep}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+</div>
+</div>
+</div>
+<br>

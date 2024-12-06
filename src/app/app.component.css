@@ -1,0 +1,24 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.mainhead{
+    justify-content: space-between;
+}
+.maintitle{
+    font-weight: bold;
+}
+.mainside{
+    width:250px;
+    background-color: RGB(224, 224, 224);
+    
+}
+.ctnr{
+    height:100%;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,486 @@
+<!--Start Header	-->
+<header>
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-white">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">
+					<img src="../../../assets/images/logo2.png" alt="">
+				</a>  
+				<div class="collapse navbar-collapse" style="padding-top: 15px;" id="navbarSupportedContent">
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+						<a class="nav-link active" aria-current="page" routerLink="/">
+								<p class="partene">
+									Home
+								</p>	
+						</a>
+						</li>
+						 <li class="nav-item">
+						<a class="nav-link" routerLink="/about"><p class="partene">
+							About
+						</p></a>
+						</li>
+						
+						<li class="nav-item">
+						<a class="nav-link " ><p class="partene">
+							Departments
+						</p></a>
+						</li>
+						
+						
+						<li class="nav-item">
+						<a class="nav-link " href="#footer" ><p class="partene">
+							Contact us
+						</p></a>
+						</li> 
+
+						<li class="nav-item sign">
+							<a class="nav-link " target="_self" routerLink="/loginadmin"><p class="partene">
+								Sign in Admin
+							</p></a>
+						</li>		  
+						
+						<li class="nav-item sign">
+							<a class="nav-link " target="_self" routerLink="/login"><p class="partene">
+								Sign in
+								</p></a>
+						</li>
+				
+					</ul>
+					
+				
+				</div>
+			</div>
+		</nav>
+	</div>
+	</header>	
+<!--End Header	-->
+	
+	
+<!--Start Hero Banner	-->
+<section class="hero-banner" id="home-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="banner-text-wrap bigtext">
+					<h1 style="color: #0e1a60; line-height: 1.2;">
+						Exceptional Medical Services: Your Health, Our Priority
+					</h1>
+					<a routerLink="/about" class="btn">About us</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!--End Hero Banner	-->
+	
+
+	
+<!-- Start Slides section -->
+<section class="slides">
+	<div class="container">
+		<div class="slidesImages">
+			<carousel id="carouselExampleIndicators" [interval]="3000" keyboard="true" wrap="true">
+				<slide *ngFor="let slide of slides">
+					<div class="carousel-caption">
+						<div class="text-center">
+							<img [src]="slide.imageSrc" alt="Slide Image" class="img-fluid">
+						</div>
+						<h5 class="animate__animated animate__bounceInRight">{{ slide.title }}</h5>
+						<p class="animate__animated animate__bounceInLeft d-none d-md-block">{{ slide.description }}</p>
+					</div>
+				</slide>
+			</carousel>
+		</div>
+	</div>
+</section>
+
+<!-- End Slides section -->
+
+
+<!--Start services Section-->
+	<section class="services-section" id="services-section">
+	     <div class="container">
+			<h2 class="section-title text-center" ><p class="parten">
+				Departments
+			</p></h2>
+		     <div class="row">
+				 
+				 <div class="col-md-4">
+				      <div class="services-box">
+					      <img src="../../../assets/images/neurology-icon.png" alt="neurology">
+						  <h3>Neurology</h3>
+							<p>Expert neurology care tailored to your unique needs. Trust our experienced team for accurate diagnosis and comprehensive treatment options.</p>	
+						</div>
+				 </div>
+				 
+				 <div class="col-md-4">
+				      <div class="services-box">
+					      <img src="../../../assets/images/genicolgy-icon.png" alt="Genicolgy">
+						  <h3>Genicolgy</h3>
+							<p>Expert gynecology care personalized to your specific needs. Trust our experienced team for comprehensive services, including routine exams, preventive care, and specialized treatments. 
+							</p>
+						</div>
+				 </div> 
+				 
+				 
+				<div class="col-md-4">
+				      <div class="services-box">
+					      <img src="../../../assets/images/oncology-icon.png" alt="">
+						  <h3>Oncology</h3>
+							<p>Trust our experienced team of oncologists for accurate diagnosis, personalized treatment plans, and compassionate support throughout your cancer journey. We are committed to providing exceptional care and improving your quality of life.</p>
+						</div>
+				 </div>  
+				 
+				 <div class="col-md-4">
+				      <div class="services-box">
+					      <img src="../../../assets/images/cardiology-icon.png" alt="">
+						  <h3>Cardiology</h3>
+						  <p>Expert cardiology care personalized to your specific needs. Trust our experienced team for precise diagnosis and comprehensive treatment options, ensuring optimal cardiovascular health.</p>
+					 </div>
+				 </div>  
+				 
+				 
+				  <div class="col-md-4">
+				      <div class="services-box">
+					      <img src="../../../assets/images/pediatrics-icon.png" alt="">
+						  <h3>Pediatrics</h3>
+							<p>Trust our experienced team of pediatricians for comprehensive healthcare, from routine check-ups to specialized treatments. We are committed to providing exceptional care for the well-being and development of your child.</p>
+						</div>
+				 </div>
+				 
+				 
+				   <div class="col-md-4">
+				      <div class="services-box">
+					      <img src="../../../assets/images/psychology-icon.png" alt="">
+						  <h3>Psychology </h3>
+						  <p>Trust our experienced team of psychologists for compassionate support, accurate assessment, and effective therapy options. Prioritizing your mental well-being is our utmost concern.</p>
+					 </div>
+				 </div>
+				 
+				 
+			 </div>
+		</div>
+	</section>
+<!--End services Section-->
+	
+
+<!-- start card section -->
+	<section class="cards" >
+		<div class="container" style="border-top: solid #0e1a60; margin-top: 50px;">
+		<h2 style="display: flex; justify-content: center; margin-top: 30px;"><p class="parten">
+			Hospital statistics
+		</p></h2>
+		<div class="card" >
+            <!------------------------------>
+            <div class="box" style="--clr: #0e1a60;">
+                <div class="content">
+                    <div class="icon"><i class='fas fa-user-md fa-3x' ></i></div>
+					
+                    <div class="text">
+                        <a class="patern"><h3>Number Of Doctor <br><pre *ngIf="liveNums">       {{liveNums.docs}}</pre></h3></a>
+                    </div>
+                </div>
+            </div>
+            <!------------------------------>
+             <div class="box" style="--clr: #04125d;" >
+                <div class="content">
+                    <div class="icon"><i class='fas fa-user-nurse fa-3x' ></i></div>
+                    <div class="text">
+                        <h3>Number of Nurses<br><pre *ngIf="liveNums">       {{liveNums.nurses}}</pre></h3>
+                       
+                    </div>
+                </div>
+            </div>
+            <!----------------------------->
+			<div class="box" style="--clr: #04125d;" >
+                <div class="content">
+                    <div class="icon"><i class='fas fa-procedures fa-3x'></i></div>
+                    <div class="text">
+                        <h3>Number of beds<br><pre  *ngIf="liveNums">       {{liveNums.beds}}</pre></h3>
+                       
+                    </div>
+                </div>
+            </div>
+            <!----------------------------->
+        </div>
+	</div>
+	</section>
+<!-- End card Section-->
+		
+
+<!-- Section Why choose us-->
+	<section class="chooseus">
+	<div class="container">
+    <div class="main-chose">
+
+        <div class="inner-chose">
+            <img src="../../../assets/images/cute.jpg" alt="">
+        </div>
+
+        <div class="inner-chose">
+            <h2><p class="parten">Why choose us
+			</p> </h2>
+
+            <div class="inner-chose-content">
+                <div class="main-inner-chose">
+                    <div class="chose-icon">
+                        <i class="fa-solid fa-hospital" style="color: #3f69b1;"></i>
+                    </div>
+                    <div class="icon-content">
+						<p ><span style="color:#0e1a60;font-weight: bold;">Expertise and Specialized Care:</span> <br> At our hospital, we take pride in our expertise and specialized care. Our team consists of highly skilled healthcare professionals who are dedicated to their respective fields. </p>
+					</div>
+                </div>
+
+                <div class="main-inner-chose">
+                    <div class="chose-icon">
+                        <i class="fas fa-hospital-user" style="color: #3f69b1;"></i>
+                    </div>
+                    <div class="icon-content">
+						<p><span style="color:#0e1a60;font-weight: bold;">State-of-the-Art Facilities:</span>
+							<br> We understand the importance of having state-of-the-art facilities to deliver optimal healthcare services. That's why we have invested in modern infrastructure and cutting-edge medical technologies</p>
+						</div>
+                </div>
+
+                <div class="main-inner-chose" >
+                    <div class="chose-icon">
+                        <i class="fas fa-user-md" style="color: #3f69b1;"></i>
+                    </div>
+                    <div class="icon-content">
+						<p><span style="color:#0e1a60;font-weight: bold;">Patient-Centered Approach:</span>
+							<br> At our hospital, we prioritize a patient-centered approach. We understand that every patient is unique and may have individual needs and concerns. </p>
+					</div>
+                </div>
+            </div>
+        
+        </div>
+		
+    </div>
+</div>
+	</section>
+
+
+<!-- Section infinity Autoplay-->
+<section class="autoplaysection">
+	<div class="container">
+		<div class="titlePart">
+			<h2><p class="parten">
+				Our Partners
+			</p></h2>
+		</div>
+		<div class="sliderr">
+			<div class="slidee-track">
+				<!-- 6 SLIDES -->
+				<div class="slidee">
+					<img  class="imgslidee" src="../../../assets/images/partenaire-cadi.jpeg">
+				</div>
+				<div class="slidee">
+					<img class="imgslidee" src="../../../assets/images/partenaire-chaabi.jpeg">
+				</div>
+				<div class="slidee">
+					<img class="imgslidee" src="../../../assets/images/partenaire-cnrst.png">
+				</div>
+				<div class="slidee">
+					<img class="imgslidee" src="../../../assets/images/partenaire-ensasafi.png">
+				</div>
+				<div class="slidee">
+					<img class="imgslidee" src="../../../assets/images/partenaire-ocp.png">
+				</div>
+				<div class="slidee">
+					<img class="imgslidee" src="../../../assets/images/partenaire-sante.png">
+				</div>
+				
+				
+				<!-- DOUBLED IT -->
+				<div class="slidee">
+					<img class="imgslidee" src="../../../assets/images/partenaire-cadi.jpeg">
+				</div>
+				<div class="slidee">
+					<img class="imgslidee" src="../../../assets/images/partenaire-chaabi.jpeg">
+				</div>
+				<div class="slidee">
+					<img class="imgslidee" src="../../../assets/images/partenaire-cnrst.png">
+				</div>
+				<div class="slidee">
+					<img class="imgslidee" src="../../../assets/images/partenaire-ensasafi.png">
+				</div>
+				<div class="slidee">
+					<img class="imgslidee" src="../../../assets/images/partenaire-ocp.png">
+				</div>
+				<div class="slidee">
+					<img class="imgslidee" src="../../../assets/images/partenaire-sante.png">
+				</div>
+				
+			</div>
+		</div>
+	</div>
+    
+</section>	
+<!-- End why choose us section -->
+
+	
+<!--Start reviews Section	-->
+<section class="OurTeam">
+	<div class="contai">     
+	
+		<div class="rox">
+			<h1 class="rox1"> 
+				
+				<p class="parten">
+					Site creators
+				</p>
+			
+			</h1>
+		</div>
+		<div class="rox">
+			<!-- colox 1-->
+			<div class="colox">
+				<div class="carta">
+					<div class="img-container">
+						<img src="../../../assets/images/client1.jpg" />
+					</div>
+					<h3>KHANNOUS <br>
+						Anass</h3>
+					<div class="iconsss">
+						<a href="#">
+							<i class="fab fa-linkedin"></i>
+						</a>
+						<a href="#">
+							<i class="fas fa-envelope"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- colox 2-->
+			<div class="colox">
+			<div class="carta">
+				<div class="img-container">
+				<img src="../../../assets/images/client3.jpg" />
+				</div>
+				<h3>El amrani <br>
+					Fatima</h3>
+				<div class="iconsss">
+				
+				<a href="#">
+					<i class="fab fa-linkedin"></i>
+				</a>
+			   
+				<a href="#">
+					<i class="fas fa-envelope"></i>
+				</a>
+				</div>
+			</div>
+			</div>
+			<!-- colox 3-->
+			<div class="colox">
+			<div class="carta">
+				<div class="img-container">
+				<img src="../../../assets/images/client2.png" />
+				</div>
+				<h3>EL MAKHFI <br>
+					Mohamed</h3>
+				<div class="iconsss">
+				
+				<a href="#">
+					<i class="fab fa-linkedin"></i>
+				</a>
+				<a href="#">
+					<i class="fas fa-envelope"></i>
+				</a>
+				</div>
+			</div>
+			</div>
+		</div>
+
+	</div>
+</section>
+<!--End reviews Section	-->
+
+
+
+<!--Start Footer	-->
+	<footer id="footer">
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-md-4">
+					<div class="footer-widget">
+						<h3>
+							<p class="partene">
+								Contact Us
+							</p>	
+						</h3>
+						
+						<ul class="footer-address">
+							<li>
+								<i class="fa fa-map-marker" aria-hidden="true"></i>
+								<div>
+									<h4>Address</h4>
+									<p>6444 Miftah Elkhir street <br> Safi PA 33445 <br> Morocco</p>	
+								</div>
+							</li>
+							
+							<li>
+								<i class="fa fa-phone" aria-hidden="true"></i>
+								<div>
+									<h4>Phone</h4>
+									<p> <a href="tel:+21253128893">+212 576672956</a></p>
+									<p> <a href="tel:+21253128893">+212 571892166</a></p>
+								</div>
+							</li> 
+							
+							<li>
+							<i class="fa fa-envelope-o" aria-hidden="true"></i>
+								<div>
+									<h4>Email</h4>
+									<p> <a href="mailto:mohamedelmakhfi6@gmail.com">Ramhospital@gmail.com</a> </p>
+								</div>
+							</li> 
+							
+							
+						</ul>
+					</div>
+				</div> 
+				
+				
+				
+				<div class="col-md-2">
+					<div class="footer-widget">
+						<h3>
+							<p class="partene">
+								Departments
+							</p>	
+						</h3>
+						<ul class="footer-menu">
+							<li> <a href="#services-section"> Neurology </a> </li>
+							<li> <a href="#services-section">Psychology </a> </li>
+							<li> <a href="#services-section"> Genicolgy</a> </li>
+							<li> <a href="#services-section"> Cardiology</a> </li>
+							<li> <a href="#services-section"> Oncology</a> </li>
+							<li> <a href="#services-section"> Pediatrics</a> </li>
+						</ul>
+					</div>
+				</div>  
+			
+				<div class="col-md-2">
+					<div class="footer-widget">
+						<h3>
+							<p class="partene">
+								Sign in
+							</p>	
+						</h3>
+						<ul class="footer-menu">
+							<li> <a > Admin </a> </li>
+							<li> <a > Doctor/Guest </a> </li>
+						</ul>	
+					</div>	
+				</div>   
+				<div class="col-md-4 map" >	
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1027.3265462562385!2d-9.23156235942085!3d32.311305852040825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdac21a73568602b%3A0x99a82b688dd337bd!2z2YXYs9iq2LTZgdmJINi52KfYpti02Kk!5e0!3m2!1sfr!2sma!4v1684663428527!5m2!1sfr!2sma" width="450" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+				</div>	
+			</div>	
+		</div>	
+	</footer>	
+<!--End Footer	-->

@@ -1,0 +1,51 @@
+<div class="ctner">
+    <mat-card class="login-card">
+      <div class="header">
+        <h2>Medical Service Login</h2>
+      </div>
+      <mat-card-content>
+        <mat-tab-group mat-align-tabs="center" >
+          <mat-tab label="Guest">
+            <form class="frm" [formGroup]="guestForm" (submit)="logGuest(guestForm)">
+              <mat-form-field >
+                <mat-label>CIN</mat-label>
+                <input matInput placeholder="Enter ID" formControlName="CIN">
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Enter Password" formControlName="password">
+              </mat-form-field>
+              <button mat-raised-button color="primary" (click)="logGuest(guestForm)">Login</button>
+            </form>
+          </mat-tab>
+          <mat-tab label="Doctor">
+            <form class="frm" [formGroup]="docForm" (submit)="logDoc(docForm)">
+              <mat-form-field>
+                <mat-label>Tel</mat-label>
+                <input matInput placeholder="Enter ID" formControlName="Tel">
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Enter Password" formControlName="password">
+              </mat-form-field>
+              <button mat-raised-button color="primary" (click)="logDoc(docForm)">Login</button>
+            </form>
+          </mat-tab>
+          <mat-tab label="Admin">
+            <form class="frm" [formGroup]="adForm" (submit)="adLog(adForm)">
+              <mat-form-field>
+                <mat-label>Mail</mat-label>
+                <input matInput placeholder="Enter ID" formControlName="mail">
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Enter Password" formControlName="password">
+              </mat-form-field>
+              <button mat-raised-button color="primary" (click)="adLog(adForm)">Login</button>
+            </form>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

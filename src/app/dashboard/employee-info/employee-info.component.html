@@ -1,0 +1,97 @@
+
+<div class="dialogcontainer custom-dialog">
+  
+    <h1 class="dialogttl" >{{type}} Info</h1>
+    <mat-divider class="divide"></mat-divider>
+    <div *ngIf="!employee" class="notfound" >
+      <mat-icon fontIcon="error" class="notfoundicon"></mat-icon>
+      <h1>No occurence found</h1>
+    </div>
+    <mat-grid-list cols="2" rowHeight="2:1" gutterSize="0" class="gridlist">
+      <mat-grid-tile class="grid">
+        <mat-card class="depcard">
+        <mat-card-title>Personal info:</mat-card-title>
+        <mat-divider></mat-divider>
+        <mat-card-content class="content">
+          
+        <p *ngIf="type =='Doctor'"><strong>First Name: </strong>{{ employee.first_nameD }}</p>
+        <p *ngIf="type =='Admin'"><strong>First Name: </strong>{{ employee.first_namea }}</p>
+        <p *ngIf="type =='Nurse'"><strong>First Name: </strong>{{ employee.first_nameN }}</p>
+            
+        <p *ngIf="type =='Doctor'"><strong>Last Name: </strong>{{ employee.last_nameD }}</p>
+        <p *ngIf="type =='Admin'"><strong>Last Name: </strong>{{ employee.last_namea }}</p>
+        <p *ngIf="type =='Nurse'"><strong>Last Name: </strong>{{ employee.last_nameN }}</p>
+        
+        <p *ngIf="type =='Doctor'"><strong>ID: </strong>{{ employee.numDoc }}</p>
+        <p *ngIf="type =='Nurse'"><strong>ID: </strong>{{ employee.nurseNum }}</p>  
+        <p *ngIf="type =='Admin'"><strong>ID: </strong>{{ employee.id }}</p>
+
+      </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile class="grid">
+        <mat-card class="depcard">
+        <mat-card-title>Work info:</mat-card-title>
+        <mat-divider></mat-divider>
+        <mat-card-content class="content" *ngIf="type =='Nurse'">
+        <P ><strong>Shift Start: </strong>{{employee.NshiftS}}</P>
+        <P><strong>State: </strong>{{ employee.NshirtE }}</P>
+        <P><strong>Work days: </strong>{{ employee.daysN }}</P>
+      </mat-card-content>
+      <mat-card-content class="content" *ngIf="type =='Doctor'">
+        <P ><strong>Shift Start: </strong>{{employee.DshiftS}}</P>
+        <P><strong>State: </strong>{{ employee.DshiftE }}</P>
+        <P><strong>Work days: </strong>{{ employee.daysD }}</P>
+      </mat-card-content>
+      <mat-card-content class="content" *ngIf="type =='Admin'">
+        <P ><strong>Gmail: </strong>{{employee.gmail}}</P>
+      </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile class="grid"  *ngIf="type =='Doctor'">
+        <mat-card class="depcard">
+        <mat-card-title>Doctor Info:</mat-card-title>
+        <mat-divider></mat-divider>
+        <mat-card-content class="content">
+        <p><strong>Specialty: </strong>{{ employee.specD }}</p>
+        <p><strong>Department: </strong>{{ employee.depNum }}</p>
+        <p><strong>Availability: </strong>{{ available }}</p>
+      </mat-card-content>
+      </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile class="grid"  *ngIf="type =='Nurse'">
+        <mat-card class="depcard">
+        <mat-card-title>Nurse Info:</mat-card-title>
+        <mat-divider></mat-divider>
+        <mat-card-content class="content">
+          <p><strong>Doctor: </strong>{{doctor.first}} {{doctor.last}}</p>
+          <p ><strong>rooms: </strong>{{employee.rooms}}</p>          
+        </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    <mat-grid-tile class="grid" *ngIf="type =='Doctor'|| type=='Admin'">
+      <mat-card class="depcard">
+      <mat-card-title >Account info:</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-card-content class="content">
+      <p *ngIf="type=='Doctor'"><strong>Password: </strong>{{ employee.passwordD }}</p>
+      <p *ngIf="type=='Admin'"><strong>Password: </strong>{{ employee.passworda }}</p>
+      <p *ngIf="type=='Admin'"><strong>Contact: </strong>{{ employee.contacta }}</p>
+      <p *ngIf="type=='Admin'"><strong>Last Login: </strong>{{ employee.logins }}</p>
+      <p *ngIf="type=='Doctor'"><strong>Contact: </strong>{{ employee.contactD }}</p>
+      <p *ngIf="type=='Doctor'"><strong>Last Login: </strong>{{ employee.loginsD }}</p>
+    </mat-card-content>
+    </mat-card>
+    </mat-grid-tile>
+    </mat-grid-list>
+    <div class="roww">
+      <br>
+    <mat-divider></mat-divider>
+        <br>
+      <button *ngIf="type=='Nurse'" mat-raised-button   (click)="editNurse(employee)" class="actionrow sub">Edit</button>
+      <button *ngIf="type =='Admin'" mat-raised-button  (click)="editAdmin(employee)" class="actionrow sub">Edit</button>
+      <button *ngIf="type =='Doctor'" mat-raised-button (click)="editDoctor(employee)" class="actionrow sub">Edit</button>
+      <button mat-raised-button  (click)="closeDialog()" color="warn" class="actionrow canc">Close</button>
+    </div>
+    </div>
+  

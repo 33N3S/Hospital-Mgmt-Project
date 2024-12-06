@@ -1,0 +1,64 @@
+<div class="ctnr" >
+    <br><br>
+    <div class="upper"><h1 class="hero">Guest Space</h1> <button color="warn" mat-raised-button routerLink="/">Home</button></div>
+    
+    <mat-grid-list cols="3" class="gridlist maingrid" rowHeight="340px" gutterSize="10px">
+        <mat-grid-tile class="right" colspan="2">
+          <mat-card class="banner card">
+            <div class="banner-content">
+              <h2 class="banner-title">Welcome to Your Guest Space</h2>
+              <p class="banner-subtitle">Enjoy your stay!</p>
+            </div>
+          </mat-card>
+        </mat-grid-tile>      
+        <mat-grid-tile colspan="1" rowspan="2" >
+            <mat-card class="card " class="long">
+                <mat-card-header>
+                <mat-card-title class="cardttl">Patient Live Info</mat-card-title>
+                </mat-card-header>
+                <mat-divider></mat-divider>
+                <mat-card-content class="cardinfo pat">
+                    <mat-card-subtitle>General :</mat-card-subtitle>
+                    <p><strong>Name : </strong>{{patient.first_namep}} {{patient.last_namep}}</p>
+                    <p><strong>CIN : </strong>{{patient.cinPatient}}</p>
+                    <mat-card-subtitle>Medical :</mat-card-subtitle>
+                    <p><strong>Statep : </strong>{{patient.statep}}</p>
+                    <p><strong>Details : </strong>{{patient.notep}}</p>
+                    <mat-card-subtitle>Placement :</mat-card-subtitle>
+                    <p><strong>Department: </strong>{{patient.depName}}</p>
+                    <p><strong>Room: </strong>{{patient.roomNum}}</p>
+                    <p><strong>Bed : </strong>{{patient.bedNum}}</p>
+                    <p><strong>Last Entry : </strong>{{patient.historyp[patient.historyp.length-1]}}</p>
+
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile class="right" >
+            <mat-card class="card long mod">
+                <mat-card-header>
+                    <mat-card-title class="cardttl">Additional Information</mat-card-title>
+                </mat-card-header>
+                <mat-divider id="infodivid"></mat-divider>
+                <mat-card-content class="cardinfo ">
+                    <p class="addinfo" id="inf">This space allows you to check live information about your relative. We understand the importance of keeping you informed during their stay at our hospital.</p>
+                    <p class="addinfo">For more information or troubleShoot contact us on :</p>
+                    <p > <i class="fas fa-envelope"></i> <a href="mailto:mohamedelmakhfi6@gmail.com">  Ramhospital@gmail.com</a> </p>                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile class="right" >
+            <mat-card class="card long mod">
+                <mat-card-header>
+                    <mat-card-title class="cardttl">Doctor </mat-card-title>
+                </mat-card-header>
+                <mat-divider></mat-divider>
+                <mat-card-content class="cardinfo doc">
+                    <p><strong>Name : </strong>{{docs.first_nameD}} {{docs.last_nameD}}</p>
+                    <p><strong>Statue : </strong>{{ isAvailable(docs) ? 'Available' : 'Unavailable' }}</p>
+                    <p><strong>Contact : </strong>{{ docs.contactD}}</p>
+                    <p><strong>Specialty : </strong>{{docs.specD}} </p>
+                    <p><strong>Consulting Days : </strong>{{docs.daysD}} </p>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    
+    </mat-grid-list>

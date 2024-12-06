@@ -1,0 +1,45 @@
+<div class="dialogcontainer">
+    <h1 class="dialogttl">Register Admin</h1>
+    <form [formGroup]="adform" >
+    <mat-grid-list cols="2" rowHeight="75px">
+        <mat-grid-tile>
+            <mat-form-field  class="full-width">
+                <mat-label>First Name</mat-label>
+                <input type="text" matInput formControlName="first_namea"  >
+            </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="full-width"  >
+            <mat-label>Last Name</mat-label>
+            <input type="text" matInput formControlName="last_namea" >
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="full-width"  >
+            <mat-label>Password</mat-label>
+            <input type="text" matInput formControlName="passworda">
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="full-width"  >
+            <mat-label>Contact</mat-label>
+            <input type="text" matInput formControlName="contacta" placeholder="+212" >
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="full-width"  >
+            <mat-label>Gmail</mat-label>
+            <input type="mail" matInput formControlName="gmail">
+        </mat-form-field>
+    </mat-grid-tile>
+    </mat-grid-list>
+        <mat-divider></mat-divider>
+        <mat-action-row class="roww">
+            <br>
+            <button mat-raised-button (click)="DocSubmit()" [disabled]="!adform.valid" class="actionrow sub">Submit</button>
+            <button mat-raised-button color="warn" (click)="closeDialog()" class="actionrow canc">Cancel</button>
+        </mat-action-row>
+    </form>
+</div>
+
+

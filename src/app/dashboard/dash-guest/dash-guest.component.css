@@ -1,0 +1,216 @@
+
+
+
+.maingrid{
+    width:95%;
+    background-color: rgba(78, 74, 74, 0.614);
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    margin:auto;
+    border-radius: 15px;
+    margin-left:auto;  
+    align-items: center;
+}
+
+.herottl{
+    font-size:50px;
+    padding:2px;
+    margin-top: 25px;
+    color:darkgrey;
+    margin-left:50px;
+}
+
+.widecard{
+    width: 95%;
+    height:95%;
+    background-color:white;
+}
+
+.long{
+  margin-bottom: -31px;
+    height: 89%;
+    width:90%;
+    background-color: #1d1d20;
+    color:white;
+}
+.cardttl{
+    color: rgb(245, 239, 252);
+    margin-bottom:15px ;
+    margin-left: 15px;
+    font-size: 200%;
+}
+
+.cardinfo{
+    color: rgb(247, 245, 245);
+    font-size:120%;
+}
+
+.cardinfo p{
+    margin-left: 30px;
+    padding: 2px;
+    padding-top:8px;
+}
+
+.mod{
+  padding-right:40px;
+  height: 94%;
+  margin-bottom: 20px;
+}
+
+.cardinfo mat-card-subtitle{
+    color: #787878;
+    font-size: 180%;
+    margin:20px;
+    padding-top:10px;
+}
+
+.line{
+    background-color: #fafafa;
+    width:100%;
+}
+
+.ctnr{
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    justify-items: center;
+    justify-content: center;
+    height: 120%;
+}
+
+
+#nurse{
+    justify-items: center;
+}
+
+.doc{
+    padding-top:20px;
+}
+
+.pat{
+    padding-top:7px
+}
+
+.banner{
+    width:95%;
+    height:90%;
+    background-color: #1d1d20;
+}
+
+
+.hero{
+    margin-left:30px;
+    margin-bottom: 30px;
+    font-size:50px;
+    font-weight:bold;
+    color:#131313;
+}
+
+.upper{
+  display: flex;
+  justify-content: space-between;
+}
+.upper button{
+  margin-right:50px;
+  width:150px;
+  height: 50px;
+}
+
+.cardinfo a{
+  text-decoration: none;
+  color: rgb(159, 159, 159);
+}
+
+.smallgrid{
+    margin-top: -18px;
+}
+
+body{
+    background-color: #06121d;
+}
+
+ mat-divider{
+    background-color:#787878;
+    opacity: 0.7;
+    width:90%
+
+}
+
+#inf{
+  margin-top:20px
+}
+
+.banner {
+
+    height:65%;
+    background-color: #1d1d20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: fadeIn 2s;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .banner-content {
+    text-align: center;
+    color: white;
+  }
+  
+  .banner-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    animation: scaleText 2s infinite;
+  }
+  
+  @keyframes scaleText {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+  }
+  
+  .banner-subtitle {
+    font-size: 18px;
+    opacity: 0;
+    animation: fadeInSubtitle 2s forwards;
+    animation-delay: 1s;
+  }
+  
+  @keyframes fadeInSubtitle {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .addinfo{
+    opacity:0.5;
+    padding-top:15px;
+    padding-right:50px;
+  }
+  
+
+
+
+
+
+

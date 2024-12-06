@@ -1,0 +1,30 @@
+<br>
+<p class="hero">Document Preview</p>
+<mat-divider></mat-divider>
+<br>
+<div class="Preview">
+<div class="container body" id="certificateContainer">
+    <h1>Medical Certification</h1>
+    <div style="display:flex;align-items: last baseline;"><h2><strong>Date : </strong></h2><h3> {{today |date:'mediumDate'}}</h3></div>
+    <div class="patient-info">
+      <h2><strong>Patient Information</strong></h2>
+      <p><strong>CIN:</strong> {{patient.cinPatient}}</p>
+      <p><strong>Name:</strong> {{patient.first_namep}} {{patient.last_namep}}</p>
+      <p><strong>Date of Birth:</strong> {{patient.naissancep}}</p>
+    </div>
+    <div  class="certification-info">
+      <h2><strong>Cerftification Details</strong></h2>
+      <p><strong>Duration of Medical Certification:</strong>___________</p>
+      <p>This certification is issued to certify that the patient mentioned above has been under my care and treatment for the specified duration. The patient has received medical attention and is advised to follow the prescribed treatment plan.</p>
+    </div>
+    <div class="doctor">
+      <p>Doctor's Signature :____________</p>
+      <p class="date-line">Date:____________</p>
+    </div>
+  </div>
+</div>
+  <br>
+  <br>
+  <div class="btnctn"> <button mat-raised-button (click)="download()">Download</button>
+  <button  mat-raised-button color="primary" (click)="print()">Print</button></div>
+ 

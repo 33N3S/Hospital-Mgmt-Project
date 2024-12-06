@@ -1,0 +1,46 @@
+<div class="dialogcontainer">
+    <h1 class="dialogttl">Reintegrate Patient</h1>
+    <form [formGroup]="addform">
+    <mat-grid-list cols="2" rowHeight="80px">
+    <mat-grid-tile >
+        <mat-form-field>
+            <mat-label>Patient CIN</mat-label>
+            <input matInput formControlName="cinPatient" placeholder="Ex:XY154896" [matAutocomplete]="auto" >
+        </mat-form-field>
+    </mat-grid-tile> 
+
+    <mat-autocomplete #auto>
+        <mat-option *ngFor="let c of options" [value]="c.cinPatient">{{c.cinPatient}}</mat-option>
+      </mat-autocomplete>
+
+    <mat-grid-tile>
+        <mat-form-field>
+            <mat-label>Select Bed</mat-label>
+            <mat-select formControlName="bedNum">
+                <mat-option *ngFor="let b of beds" value={{b.bedNum}} >{{b.bedNum}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-grid-tile>  
+  
+    <mat-grid-tile>
+        <mat-form-field class="full-width">
+            <mat-label>State</mat-label>
+            <mat-select formControlName="statep">
+                <mat-option value="Stable" >Stable</mat-option>
+                <mat-option value="Improving">Improving</mat-option>
+                <mat-option value="Declining">Declining</mat-option>
+                <mat-option value="Critical">Critical</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <div class="text2" *ngIf="options.length==0 || options.length>1">No occurence found</div>
+        <div class="text" *ngIf="options.length==1">Found:{{options[0].first_namep}} {{options[0].last_namep}}</div>
+    </mat-grid-tile>
+    </mat-grid-list>
+    </form>
+    <mat-action-row class="roww">
+        <button mat-raised-button (click)="onSubmit()" [disabled]="!(options.length >0 && addform.valid)">submit</button>
+        <button mat-raised-button color="warn" (click)="closedialog()">close</button>
+    </mat-action-row>
+</div>

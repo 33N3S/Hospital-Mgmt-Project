@@ -1,0 +1,53 @@
+
+
+
+.actionrow{
+    margin-top: 8px;
+}
+
+.dialogcontainer{
+    padding:15px;
+    display:list-item;
+    background: linear-gradient(45deg, #002680, #02095a, #0e1852,#1A237E);
+    background-size: 300% 300%;
+    animation: gradient 15s ease infinite;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+}
+
+.dialogttl{
+    font-size:30px;
+    margin-top:10px;
+    color:white;
+    margin-bottom:25px;
+    margin-left:36px;
+    font-weight: bold;
+}
+
+.fullwidth{
+    width:100%;
+}
+.bigger{
+    font-size: 130%;
+    color:white;
+}
+
+.datepick{
+    width:76%;
+}
+
+.roww{
+    margin-right:15px;
+}

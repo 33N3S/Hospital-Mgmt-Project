@@ -1,0 +1,43 @@
+<p class="hero">Department Management</p>
+
+<mat-divider></mat-divider>
+
+<div >
+    <form class="searchinput" [formGroup]="srchform">
+        <mat-form-field class="full-width"  >
+          <mat-label>Patient Search By CIN</mat-label>
+          <input type="text" matInput placeholder="Ex. XY555555" #cin [matAutocomplete]="auto" formControlName="cin" >
+          <button mat-icon-button class="searchbtn" (click)="onSub(cin.value)"><mat-icon>search</mat-icon></button>
+        </mat-form-field>
+      </form>
+</div>
+
+<mat-autocomplete #auto>
+  <mat-option *ngFor="let c of options" value={{c.cinPatient}} >{{c.cinPatient}}</mat-option>
+</mat-autocomplete> 
+
+<button mat-raised-button color="primary" class="depaddbtn"  (click)="openDialog()"><mat-icon>add</mat-icon>Add department</button>
+
+<mat-grid-list cols="3" rowHeight="320px" class="grid-main" >
+    <mat-grid-tile *ngFor="let d of deps" class="grid-tile" ><mat-card class="depcard">
+        <mat-card-header>
+            <mat-card-title>{{d.depName}}</mat-card-title>
+          </mat-card-header>
+          <br>
+          <mat-card-content>
+            <p>beds available: {{d.beds}} </p>
+            <p>number of rooms: {{d.rooms}} </p>
+            <p>number of nurses: {{d.nurses}}</p>
+          </mat-card-content>
+          <mat-divider></mat-divider>
+          <mat-card-actions>
+            <button mat-stroked-button color="primary" class="actionbtn" [routerLink]="['/rooms',{dep:d.depName}]">ACCESS</button>
+              <mat-menu #depopts>
+                <button mat-menu-item >Edit rooms</button>
+                <button mat-menu-item >Edit info</button>
+              </mat-menu>
+          </mat-card-actions>
+          <mat-card-footer class="cardfoot"></mat-card-footer>
+    </mat-card></mat-grid-tile>
+</mat-grid-list>
+<br><br><br>

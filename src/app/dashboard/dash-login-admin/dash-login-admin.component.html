@@ -1,0 +1,24 @@
+
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<div class="body">
+<div class="container">
+    <div class="signin-signup">
+        <form action="" class="sign-in-form" [formGroup]="adForm" (ngSubmit)="adLog(adForm)">
+            <h2 class="title">Sign in</h2>
+            <h3 class="title-user">Admin</h3>
+            <img src="../../../assets/images/usericon.png" alt="" class="image" style="width: 30%;">
+                <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Gmail" formControlName="mail">
+            </div>
+            <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" formControlName="password">
+            </div>
+            <input type="submit" value="Login" class="btn">               
+        </form>    
+    </div>
+</div>
+<button class="botn" id="sign-in-btn" routerLink="/">Home</button>
+</div> 
+    

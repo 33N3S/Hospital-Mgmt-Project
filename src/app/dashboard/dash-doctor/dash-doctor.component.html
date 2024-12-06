@@ -1,0 +1,143 @@
+<p class="hero">Doctor Dashboard</p>
+
+<mat-divider></mat-divider>
+
+<div >
+    <form class="searchinput" [formGroup]="srchform">
+        <mat-form-field class="full-width"  >
+          <mat-label>Patient Search By CIN</mat-label>
+          <input type="text" matInput placeholder="Ex. XY555555" #cin [matAutocomplete]="auto" formControlName="cin" >
+          <button mat-icon-button class="searchbtn" (click)="onSub(cin.value)"><mat-icon>search</mat-icon></button>
+        </mat-form-field>
+      </form>
+</div>
+
+<mat-autocomplete #auto>
+  <mat-option *ngFor="let c of options" value={{c.cinPatient}} >{{c.cinPatient}}</mat-option>
+</mat-autocomplete> 
+
+<br>
+
+    <div class="abovecarou">
+        <strong class="nurcaroucardttl ">Nurses</strong>
+    </div>
+
+<br>
+
+    <mat-card class="caroucontain">
+        <mat-card-header>
+        </mat-card-header>
+        <owl-carousel-o [options]="customOptions">
+          <ng-container *ngFor="let nur of nurses">
+            <ng-template carouselSlide [id]="nur.id">
+              <mat-card class="nurcaroucard">
+                <mat-card-header>
+                    <mat-card-title>{{nur.first_nameN}} {{nur.last_nameN}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p *ngIf="nur.rooms"><strong>Rooms:</strong> {{nur.rooms}}</p>
+                    <p ><strong>Shift Start:</strong> {{nur.NshiftS}}</p>
+                    <p ><strong>Shift End:</strong> {{nur.NshirtE}}</p>
+                    <p><strong>Statue:</strong> {{ isAvailable(nur) ? 'Available' : 'Unavailable' }}</p>
+                    <button mat-button class="editbtn" (click)="editNurse(nur)"><mat-icon>edit</mat-icon></button>
+                </mat-card-content>
+              </mat-card>
+            </ng-template>
+          </ng-container>
+      
+        </owl-carousel-o>
+    </mat-card><br><br>
+    <div class="abovecarou">
+        <strong class="nurcaroucardttl ">Patients</strong>
+    </div>
+    <br>
+    <div class="contain">
+        <div class="tablecontainer">
+          <form [formGroup]="editform">
+            <table mat-table [dataSource]="filtered" class="tablee">
+                <!-- Date Column -->
+                <ng-container matColumnDef="Date">
+                  <th mat-header-cell *matHeaderCellDef> Date </th>
+                  <td mat-cell *matCellDef="let element"> {{element.historyp | date:'mediumDate'}} </td>
+                </ng-container>
+              
+                <!-- Bed Column -->
+                <ng-container matColumnDef="Bed">
+                  <th mat-header-cell *matHeaderCellDef> Bed </th>
+                  <td mat-cell *matCellDef="let element"> {{element.bedNum}} </td>
+                </ng-container>
+              
+                <!-- CIN Column -->
+                <ng-container matColumnDef="CIN">
+                  <th mat-header-cell *matHeaderCellDef> CIN </th>
+                  <td mat-cell *matCellDef="let element">{{element.cinPatient}} </td>
+                </ng-container>
+              
+                <!-- State Column -->
+                <ng-container matColumnDef="State">
+                  <th mat-header-cell *matHeaderCellDef>State</th>
+                  <td mat-cell *matCellDef="let element; let rowIndex = index">
+                    <ng-container *ngIf="isEditing(rowIndex)">
+                    <mat-form-field appearance="outline" class="editselect" >
+                      <mat-select [(ngModel)]="element.statep" formControlName="statep">
+                        <mat-option value="Stable">Stable</mat-option>
+                        <mat-option value="Improving">Improving</mat-option>
+                        <mat-option value="Declining">Declining</mat-option>
+                        <mat-option value="Critical">Critical</mat-option>
+                      </mat-select>
+                    </mat-form-field >
+                    </ng-container>
+                    <ng-container *ngIf="!isEditing(rowIndex)">
+                      {{element.statep}}
+                    </ng-container>
+                  </td>
+                </ng-container>
+              
+                <!-- Action Column -->
+                <ng-container matColumnDef="Action">
+                  <th mat-header-cell *matHeaderCellDef></th>
+                  <td mat-cell *matCellDef="let element;let rowIndex = index">
+                    <button  *ngIf="!isEditing(rowIndex)" mat-icon-button (click)="toggleEditMode(rowIndex)">
+                      <mat-icon color="primary" class="editbtn">edit</mat-icon>
+                    </button>
+                    <button *ngIf="isEditing(rowIndex)" mat-icon-button (click)="updateNotes(rowIndex)">
+                      <mat-icon  color="primary" class="editbtn">save</mat-icon>
+                    </button>
+                  </td>
+                </ng-container>
+
+                <!-- Action Column -->
+                <ng-container matColumnDef="print">
+                  <th mat-header-cell *matHeaderCellDef></th>
+                  <td mat-cell *matCellDef="let element;let rowIndex = index">
+                    <button mat-icon-button (click)="goprint(element)">
+                      <mat-icon  color="primary" class="editbtn" >print</mat-icon>
+                    </button>
+                  </td>
+                </ng-container>
+
+                   <!-- Note Column -->
+
+                <ng-container matColumnDef="Notes">
+                  <th mat-header-cell *matHeaderCellDef>Note</th>
+                  <td mat-cell *matCellDef="let element; let rowIndex = index">
+                    <ng-container *ngIf="isEditing(rowIndex)">
+                    <mat-form-field appearance="fill" class="editform">
+                      <textarea matInput type="text" [(ngModel)]="element.notep"  formControlName="notep"></textarea>
+                    </mat-form-field>
+                    </ng-container>
+                    <ng-container *ngIf="!isEditing(rowIndex)">
+                      {{element.notep}}
+                    </ng-container>
+                  </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+            </form>
+        </div>
+        </div>
+        <br>
+
+
+        

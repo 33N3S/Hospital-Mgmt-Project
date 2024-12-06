@@ -1,0 +1,28 @@
+<div class="dialogcontainer">
+<h1 class="dialogttl">Add Department</h1>
+<form [formGroup]="depform">
+    <p>
+    <mat-form-field  class="full-width">
+        <mat-label>Department name</mat-label>
+        <input type="text" matInput placeholder="Ex:Genicology" formControlName="depName" >
+        <mat-hint>must be unique</mat-hint>
+    </mat-form-field>
+    </p>
+    <p>
+    <mat-form-field class="full-width"  >
+        <mat-label>Number of rooms</mat-label>
+        <input type="text" matInput formControlName="roomCount" >
+        <mat-hint >must be an integer</mat-hint>
+    </mat-form-field>
+    </p>
+    <mat-divider></mat-divider>
+    <mat-action-row class="roww">
+        <button mat-raised-button  (click)="depSubmit()" class="actionrow sub">Submit</button>
+        <button mat-raised-button color="warn" (click)="closeDialog()" class="actionrow canc">Cancel</button>
+    </mat-action-row>
+
+
+    
+</form>
+</div>
+    

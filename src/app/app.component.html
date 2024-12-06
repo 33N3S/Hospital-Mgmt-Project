@@ -1,0 +1,29 @@
+
+<mat-toolbar  color="primary" *ngIf="!hideToolbar" class="mainhead">
+<div>
+    <button *ngIf="!togglenav" mat-icon-button (click)="sidenav.toggle()" >
+      <mat-icon >menu</mat-icon>
+    </button>
+    <span class="maintitle">Hospital Dashboard</span>
+</div>
+    <span ></span>
+<div>
+    <button mat-icon-button matTooltip="Logout" matTooltipPosition="below" matTooltipHideDelay="300" routerLink="/">
+      <mat-icon>power_settings_new</mat-icon>
+    </button>
+</div>
+</mat-toolbar>
+<mat-sidenav-container class="ctnr">
+    <mat-sidenav #sidenav mode="side" class="mainside" [opened]="!hideToolbar && !togglenav" >
+        <mat-nav-list class="navlist">
+            <a *ngIf="!togglenav" mat-list-item routerLink="/activity" class="white">Activity</a>
+            <a *ngIf="!togglenav" mat-list-item routerLink="/home" class="white">Departments</a>
+            <a *ngIf="!togglenav" mat-list-item routerLink="/staff" class="white">Staff</a>
+            <a *ngIf="togglenav" mat-list-item routerLink="/staff" class="white">Dashboard</a>
+            <a *ngIf="togglenav" mat-list-item routerLink="/staff" class="white">Certifications</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content >
+      <router-outlet ></router-outlet>
+    </mat-sidenav-content>        
+</mat-sidenav-container>

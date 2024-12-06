@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<div class="body">
+    <div class="container">
+        <div class="signin-signup">
+            <form action="" class="sign-in-form" [formGroup]="docForm" (ngSubmit)="logDoc(docForm)">
+                <h2 class="title">Sign in</h2>
+                <h3 class="title-user">Doctor</h3>
+                <img src="../../../assets/images/doctoricon.png" alt="" class="image" style="width: 30%;">
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Id" formControlName="Tel">
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" formControlName="password">
+                </div>
+                <input type="submit" value="Login" class="btn" [disabled]="!docForm.valid">
+            </form>
+            
+            <form action="connexion.php" class="sign-up-form" [formGroup]="guestForm" (ngSubmit)="logGuest(guestForm)">
+                <h2 class="title">Sign in</h2>
+                <h3 class="title-user">Guest</h3>
+                <img src="../../../assets/images/usericon.png" alt="" class="image" style="width: 30%;">
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="CIN" formControlName="CIN">
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                  <input type="password" placeholder="Password" formControlName="password">
+                </div>
+                <input type="submit" value="Login" class="btn" [disabled]="!guestForm.valid">
+                <p class="social-text">Contact us on :</p>
+                <div class="social-media">
+                    <a href="mailto:example@example.com" class="social-icon">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+1234567890" class="social-icon">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+            </form>
+            
+        </div>
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Doctor</h3>
+                    <p>Reserved for the doctors of the hospital,Credetentials are provdided by the IT departement</p>
+                    <button class="btn" id="sign-in-btn">Sign in</button>
+                </div>
+                <img src="../../../assets/images/doctor.jpg" alt="" class="image doctor">
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>Guest</h3>
+                    <p>Use the Credetentials provided by the hospital to check up remotely on a relative's live medical information</p>
+                    <button class="btn" id="sign-up-btn">Sign in</button>
+                </div>
+                <img src="../../../assets/images/user.jpg" alt="" class="image user">
+            </div>
+        </div>
+    </div>
+    <button class="botn " id="sign-up-btn" routerLink="/">Home</button>
+    </div>
+    
+    
+    
